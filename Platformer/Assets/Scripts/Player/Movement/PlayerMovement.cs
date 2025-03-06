@@ -34,18 +34,20 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private InputAction playerSneakIA;
 
     [Space]
-    // Bools
+    [Header("Refrences")]
+    [SerializeField] Animator animator;
+    [SerializeField] GameObject playerModel;
+    CharacterController characterController;
+    SideScrollerCamera cameraScript;
+    Vector3 velocity;
+
+    [Space]
     [Header("Debugging Variables")]
     [SerializeField] bool wasGrounded = true; // Tracks previous ground state
     [SerializeField] bool isGrounded; //for debugging;
     [SerializeField] bool isSprinting;
     [SerializeField] bool isSneaking;
     [SerializeField] int jumpCount = 0;
-
-    // Components/Refrences
-    CharacterController characterController;
-    SideScrollerCamera cameraScript;
-    Vector3 velocity;
 
     private void Awake()
     {
@@ -95,7 +97,14 @@ public class PlayerMovement : MonoBehaviour
             Debug.Log("Sneaking...");
         }
 
+        //Rotate Player Model based on where it is moving
+        if (moveX > 0)
+            playerModel.transform.rotation = Quaternion.Euler(0, 90, 0);
+        else if (moveX < 0)
+            playerModel.transform.rotation = Quaternion.Euler(0, -90, 0);
+
         Vector3 move = new Vector3(moveX, 0, 0).normalized * moveSpeed;
+        animator.SetFloat("Speed", Mathf.Abs(move.x)); //Set the speed parameter in the animator
         characterController.Move(move * Time.deltaTime);
     }
 
@@ -108,6 +117,15 @@ public class PlayerMovement : MonoBehaviour
                 velocity.y = Mathf.Sqrt(playerMaxJumpHeight * -2f * inAirGravity); // Applies jump force
                 jumpCount++;
                 Debug.Log("Jumping...");
+                if (isGrounded) //Plays Jump Animation When Player is Grounded
+                {
+                    animator.SetBool("Jump", true);
+                }
+                else //Plays In Air Jump Animation
+                {
+                    animator.SetTrigger("JumpInAir");
+                }
+
             }
             characterController.Move(velocity * Time.deltaTime);
         }
@@ -125,6 +143,10 @@ public class PlayerMovement : MonoBehaviour
 
                 if (cameraScript != null)
                     cameraScript.OnLand(); // Trigger camera shake once
+
+                //Reset Animator Parameters 
+                animator.SetBool("Jump", false);
+                animator.ResetTrigger("JumpInAir");
 
                 wasGrounded = true;
             }

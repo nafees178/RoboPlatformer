@@ -19,6 +19,7 @@ public class SideScrollerCamera : MonoBehaviour
 
     private void Start()
     {
+        player = GameObject.FindGameObjectWithTag("Player").transform;
         if (player == null)
         {
             Debug.LogError("Player not assigned to SideScrollerCamera script!");
