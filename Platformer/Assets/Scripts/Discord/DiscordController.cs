@@ -30,8 +30,8 @@ public class DiscordController : MonoBehaviour
             },
             Assets =
             {
-                LargeImage = "game_icon", // Image name from Discord Developer Portal
-                LargeText = "Cave Explorer"
+                LargeImage = "game_logo", // Image name from Discord Developer Portal
+                LargeText = "Robot Roaming"
             }
         };
 
