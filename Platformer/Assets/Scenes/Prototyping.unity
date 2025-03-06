@@ -269,7 +269,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f9f48f58c4e0a3042952a2b284d7a8ca, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player: {fileID: 1768933335}
+  player: {fileID: 0}
   offset: {x: 3, y: 3.5, z: -10}
   followSpeed: 5
   landYOffset: -0.5
@@ -867,7 +867,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c70873dfc488cb0458758bef5ae007ae, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerMoveSpeed: 5
+  playerMoveSpeed: 3
   playerSprintMultiplier: 1.5
   playerMaxJumpHeight: 2
   playerSneakSpeed: 2.5
@@ -1006,6 +1006,8 @@ MonoBehaviour:
       m_Action: Player Sneak IA
       m_Flags: 0
     m_Flags: 0
+  animator: {fileID: 2040202893}
+  playerModel: {fileID: 2040202890}
   wasGrounded: 1
   isGrounded: 0
   isSprinting: 0
@@ -1171,22 +1173,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 6110418823276071694, guid: 091fe6cbe14fc6f4086c4b9ac2207ba4, type: 3}
   m_PrefabInstance: {fileID: 3506719760687722610}
   m_PrefabAsset: {fileID: 0}
---- !u!111 &2040202892
-Animation:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2040202890}
-  m_Enabled: 1
-  serializedVersion: 4
-  m_Animation: {fileID: -203655887218126122, guid: c6194e942dcbcc14c90e5e621f48b072, type: 3}
-  m_Animations: []
-  m_WrapMode: 0
-  m_PlayAutomatically: 1
-  m_AnimatePhysics: 0
-  m_UpdateMode: 0
-  m_CullingType: 0
 --- !u!95 &2040202893
 Animator:
   serializedVersion: 7
@@ -1196,8 +1182,8 @@ Animator:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2040202890}
   m_Enabled: 1
-  m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 0}
+  m_Avatar: {fileID: 9000000, guid: 6881ab3689685874ba0451a0b5ed0c8e, type: 3}
+  m_Controller: {fileID: 9100000, guid: 42277bab881c4da41a23d906b584170a, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -1382,9 +1368,6 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 6883542191294861748, guid: 091fe6cbe14fc6f4086c4b9ac2207ba4, type: 3}
       insertIndex: -1
       addedObject: {fileID: 2040202893}
-    - targetCorrespondingSourceObject: {fileID: 6883542191294861748, guid: 091fe6cbe14fc6f4086c4b9ac2207ba4, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 2040202892}
   m_SourcePrefab: {fileID: 100100000, guid: 091fe6cbe14fc6f4086c4b9ac2207ba4, type: 3}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
