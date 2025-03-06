@@ -92,7 +92,6 @@ public class PlayerMovement : MonoBehaviour
         else if (isSneaking)
         {
             moveSpeed = playerSneakSpeed;
-            animator.SetFloat("Speed", Mathf.Abs(playerSneakSpeed)); //Set the speed parameter in the animator
             Debug.Log("Sneaking...");
         }
 
