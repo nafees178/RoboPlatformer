@@ -870,7 +870,7 @@ MonoBehaviour:
   playerMoveSpeed: 3
   playerSprintMultiplier: 1.5
   playerMaxJumpHeight: 2
-  playerSneakSpeed: 2.5
+  playerSneakSpeed: 1.5
   maxJumps: 2
   inAirGravity: -9.8
   onLandGravity: -2

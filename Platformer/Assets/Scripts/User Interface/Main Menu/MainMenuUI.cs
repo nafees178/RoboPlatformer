@@ -1,6 +1,5 @@
 using System.Collections;
 using TMPro;
-using UnityEditor;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -59,7 +58,6 @@ public class MainMenuUI : MonoBehaviour
     public void mm_OnClickQuit()
     {
         Application.Quit();
-        EditorApplication.ExitPlaymode();
         Debug.Log("Quit Game");
     }
 
