@@ -54,6 +54,7 @@ public class PlayerMovement : MonoBehaviour
         Debug.Log("Are all the InputAction's enabled?"); // Debug message to check if input actions are enabled
         characterController = GetComponent<CharacterController>();
         cameraScript = Camera.main.GetComponent<SideScrollerCamera>(); //Gets the refrence from main camera
+        cameraScript.player = gameObject.transform;
     }
 
     private void OnEnable()
@@ -62,12 +63,17 @@ public class PlayerMovement : MonoBehaviour
         playerMovementIA.Enable();
         playerSneakIA.Enable();
         playerSprintIA.Enable();
-        playerJumpIA.performed += ctx => Jump(); // Binds jump action
+        playerJumpIA.performed += OnJumpInput;
     }
 
     private void OnDisable()
     {
-        playerJumpIA.performed -= ctx => Jump();
+        playerJumpIA.performed -= OnJumpInput;
+    }
+
+    private void OnJumpInput(InputAction.CallbackContext ctx)
+    {
+        Jump();
     }
 
     private void Update()

@@ -4,7 +4,7 @@ using System.Collections;
 public class SideScrollerCamera : MonoBehaviour
 {
     [Header("Camera Follow Settings")]
-    [SerializeField] private Transform player;
+    [SerializeField] public Transform player;
     [SerializeField] private Vector3 offset = new Vector3(3f, 2f, -10f);
     [SerializeField] private float followSpeed = 5f;
 
@@ -19,7 +19,7 @@ public class SideScrollerCamera : MonoBehaviour
 
     private void Start()
     {
-        player = GameObject.FindGameObjectWithTag("Player").transform;
+        //player = GameObject.FindGameObjectWithTag("Player").transform;
         if (player == null)
         {
             Debug.LogError("Player not assigned to SideScrollerCamera script!");
